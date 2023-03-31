@@ -61,6 +61,17 @@ class Materias:
             print("Exception class is: ", er.__class__)
             return False
 
+    def excluir_materia(self, nome):
+        try:
+            conn = sqlite3.connect('meubanco.db')
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM MATERIA WHERE nome = ?", ( nome,))
+            conn.commit()
+            return True
+        except sqlite3.Error as er:
+            print('SQLite error: %s' % (' '.join(er.args)))
+            print("Exception class is: ", er.__class__)
+            return False
 
 class Tabela(QtCore.QAbstractTableModel):
     def __init__(self, data):

@@ -39,6 +39,12 @@ class Tela(QMainWindow):
         self.desmarcax.setStyleSheet("QPushButton{padding: 15%;background-color: rgb(124, 169, 242);color: BLACK;font-size:22px;}")
         self.desmarcax.clicked.connect(self.desmarcar_materia)
 
+        self.deletar = QPushButton("Excluir", self)
+        self.deletar.move(700,600)
+        self.deletar.resize(80,60)
+        self.deletar.setStyleSheet("QPushButton{padding: 15%;background-color: rgb(124, 169, 242);color: BLACK;font-size:22px;}")
+        self.deletar.clicked.connect(self.excluir_materia)
+
         self.txt1 = QLineEdit("Nome:",self)
         self.txt1.move(180,560)
         self.txt1.resize(120,30)
@@ -63,6 +69,10 @@ class Tela(QMainWindow):
 
     def desmarcar_materia(self):
         self.aux.desmarcar_materia(self.tabela.currentIndex().siblingAtColumn(0).data())
+        self.preenche()
+
+    def excluir_materia(self):
+        self.aux.excluir_materia(self.tabela.currentIndex().siblingAtColumn(0).data())
         self.preenche()
 
     def criaTabela(self):
