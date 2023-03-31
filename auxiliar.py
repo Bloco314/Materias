@@ -65,7 +65,7 @@ class Materias:
         try:
             conn = sqlite3.connect('meubanco.db')
             cursor = conn.cursor()
-            cursor.execute("DELETE FROM MATERIA WHERE nome = ?", ( nome,))
+            cursor.execute("DELETE FROM MATERIA WHERE nome = ?", (nome,))
             conn.commit()
             return True
         except sqlite3.Error as er:

@@ -56,7 +56,6 @@ class Tela(QMainWindow):
 
         self.aux = auxiliar.Materias()
         self.aux.criar_tabela()
-
         self.criaTabela()
 
     def criar_materia(self):
